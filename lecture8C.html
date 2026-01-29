@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDZ</title>
+</head>
+<body>
+
+    <script>
+
+        var a = 10;
+        let b = 30;
+        const c = 40;
+
+        function addition(num)
+        {
+            var ans = num+num
+            return ans;
+        }
+
+        function subtraction(){
+            let ans2 = c-a;
+            return ans2;
+        }
+
+        console.log(b)
+
+        var res1 = addition(a);
+        let res2 = subtraction();
+
+
+    </script>
+    
+</body>
+</html>

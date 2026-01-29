@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 0;
+            margin: 0;
+        }
+
+        #container{
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: rgba(6, 88, 61, 0.393);
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        input{
+            font-size: 2rem;
+            padding: 10px;
+            margin-bottom: 1rem;
+            border: none;
+            background-color: aliceblue;
+        }
+        #btnContainer{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        #btnContainer>*{
+            width: 80px;
+            border: none;
+            padding: 10px;
+            font-size: 1.5rem;
+            background-color: beige;
+            color: maroon;
+            border-radius: 5px;
+            cursor: pointer;
+            &:active{
+transform:scale(0.9)
+            }
+
+            
+
+        }
+       
+    </style>
+</head>
+<body>
+    <div id="container">
+        <input type="text" name="" id="" disabled>
+      <div id="btnContainer">
+          <button>AC</button>
+        <button>DLT</button>
+        <button>/</button>
+        <button>*</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>-</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>+</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>%</button>
+        <button>00</button>
+        <button>0</button>
+        <button>.</button>
+        <button>=</button>
+      </div>
+    </div>
+
+
+    <script>
+        let inp = document.querySelector('input');
+        let btn = document.querySelector('#btnContainer');
+        let arr = ['AC','DLT','/','*','7','8','9','-','4','5','6','+','1','2','3','%','00','0','.','=']
+
+
+        function calc(event){
+            if(arr.includes(event.target.innerText))
+        {
+
+            if(event.target.innerText === 'AC')
+        {
+            inp.value= ""   
+        return;
+         }
+
+         if(event.target.innerText==='DLT')
+         {
+            inp.value = inp.value.slice(0,inp.value.length -1)
+            return
+         }
+
+         if(event.target.innerText === "=")
+         {
+            inp.value = eval(inp.value)
+            return;
+         }
+
+           inp.value += event.target.innerText
+        }
+
+            
+
+        }
+
+
+        btn.addEventListener('click',calc)
+
+
+    </script>
+</body>
+</html>
