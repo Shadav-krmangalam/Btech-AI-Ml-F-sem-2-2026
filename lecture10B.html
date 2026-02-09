@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>0:0</h1>
+    <button id="startBtn">Start</button>
+    <button id="pauseBtn">Pause</button>
+    <button id="resetBtn">Reset</button>
+    <script>
+
+        let h1 = document.querySelector('h1');
+        let startBtn = document.querySelector('#startBtn')
+        let pauseBtn = document.querySelector('#pauseBtn')
+        let resetBtn = document.querySelector('#resetBtn')
+        let seconds = 0;
+        let minutes = 0;
+        let watch;
+        let flag = false;
+
+
+        function startWatch(){
+          if(flag === false){
+              watch = setInterval(()=>{
+                seconds++;
+                minutes = Math.floor(seconds/60);
+                h1.innerText = `${minutes}:${seconds%60}`
+                flag=true;
+
+            },1000)
+          }
+        }
+
+        function pauseWatch(){
+            clearInterval(watch)
+
+        }
+        function resetWatch(){
+            seconds = 0;
+            minutes = 0
+            h1.innerText = `${minutes}:${seconds%60}`
+        }
+
+
+
+        startBtn.addEventListener('click',startWatch)
+        pauseBtn.addEventListener('click',pauseWatch)
+        resetBtn.addEventListener('click',resetWatch)
+
+
+        // setInterval(()=>{
+        //     console.log("Hello")
+        // },2000)
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
