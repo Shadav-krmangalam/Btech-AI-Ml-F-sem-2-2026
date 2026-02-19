@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let cart = ["Laptop","Mobile","Earphones"];
+
+        function createOrder(cart,callback){
+            console.log("order Created for :",cart)
+            setTimeout(()=>{
+                let orderID = 1234
+                callback(orderID)
+
+            },5000)
+        }
+
+        function makePayment(orderID,callback){
+            console.log("Making Payment for :",orderID)
+            setTimeout(()=>{
+                let ui = 10-1;
+                callback(ui)
+
+            },3000)
+        }
+
+        function updateInventory(ui,callback){
+            console.log("Inventory Updated :",ui);
+            setTimeout(()=>{
+                let message = "Success"
+                callback(message);
+            })
+        }
+
+        function orderStatus(message){
+            console.log("order Status:",message)
+        }
+
+        createOrder(cart,function(orderID){
+            makePayment(orderID,function(ui){
+                updateInventory(ui,function(message){
+                    orderStatus(message)
+                })
+
+            })
+
+        })
+
+    </script>
+</body>
+</html>
