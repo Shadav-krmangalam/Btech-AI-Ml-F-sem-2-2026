@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>generators & currying</title>
+</head>
+<body>
+    
+    <script>
+
+        function* trafficLight(){
+
+            console.log("Step 1")
+
+            yield "red"
+
+            console.log("Step 2")
+
+            yield "Yellow"
+
+            console.log("Step 3")
+
+            yield "green"
+
+
+        }
+
+        let a = trafficLight();
+
+
+        a.next()
+        a.next()
+        a.next()
+
+        // a.next()
+        // console.log(a.next().value)
+        // a.next()
+        // console.log(a.next())
+
+        // console.log(a.next())
+        // console.log(a.next())
+        // console.log(a.next())
+        // console.log(a.next())
+
+    </script>
+</body>
+</html>

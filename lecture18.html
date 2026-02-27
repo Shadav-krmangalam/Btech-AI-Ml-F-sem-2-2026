@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage</title>
+</head>
+<body>
+    <script>
+
+        // localStorage.setItem("Name","Alex")
+
+        
+        // localStorage.setItem("Age","20")
+        // let data = localStorage.getItem("Name")
+        // console.log(data)
+
+        // localStorage.removeItem("")
+
+        // localStorage.clear()
+
+
+        // let object1 = {
+        //     name:"Victor",
+        //     age:19,
+        //     rank:231
+        // }
+
+        // localStorage.setItem("Imp_Data",JSON.stringify(object1))
+
+        // let data2 =JSON.parse(localStorage.getItem("Imp_Data"))
+        // console.log(data2)
+
+        let arr = [1,2,3,4,5]
+
+        localStorage.setItem("Array",arr)
+
+        let data3 = localStorage.getItem("Array")
+        console.log(data3.split(","))
+
+
+
+    </script>
+    
+</body>
+</html>

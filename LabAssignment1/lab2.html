@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Assignment 2</title>
+</head>
+<body>
+
+    <h1>Async Weather Tracker</h1>
+
+    <div id="search-main-container">
+        <div id="search-city-box">
+            <h3>Search City</h3>
+            <form action="">
+                <input type="text" name="" id="city">
+                <button type="submit">Search</button>
+            </form>
+
+        </div>
+
+
+        <div id="search-history-box">
+
+            <h3>Search History</h3>
+
+            <div id="searched-cities-box">
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div id="weather-info-container">
+        <h3>Weather Info</h3>
+        <div id="city-weather-container">
+
+        </div>
+
+    </div>
+
+
+
+
+    <script>
+
+        let API_KEY = "1a761d3bb408836cd1af3641ce1604c9"
+        let form = document.querySelector("form")
+        let city = document.querySelector("#city")
+        let weather = document.querySelector('#city-weather-container')
+
+        async function getWeather(city){
+           let response = await  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
+
+          let data = await response.json()
+          console.log(data)
+          
+          let card = document.createElement('div')
+
+          card.innerHTML = `<div>City : ${data.name},${data.sys.country}</div>
+                             <div>Temp : ${data.main.temp}</div>
+                              <div>Weather :${data.weather[0].main}</div>
+                              <div>Humidity : ${data.main.humidity}</div>
+                              <div>Wind : ${data.wind.speed}</div>`
+            weather.innerHTML = ""
+            weather.append(card)
+        }
+
+
+        form.addEventListener("submit",(event)=>{
+            event.preventDefault();
+            getWeather(city.value)
+
+        })
+
+       
+
+
+
+    </script>
+    
+</body>
+</html>
